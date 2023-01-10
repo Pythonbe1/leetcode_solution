@@ -21,11 +21,27 @@ def reverseVowels(s):
     return s
 
 
-
+# 557. Reverse Words in a String III
+def reverseWords(s):
+    """
+    :type s: str
+    :rtype: str
+    """
+    word_lists = s.split(' ')
+    result=[]
+    for word in word_lists:
+        temp = list(word)
+        l = 0
+        r= len(temp) - 1
+        while l<r:
+            temp[l], temp[r] = temp[r], temp[l]
+            l+=1
+            r-=1
+        result.append(''.join(temp))
+    print(' '.join(result))
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    reverseVowels('Hello')
-
-
+    s = "God Ding"
+    reverseWords(s)
