@@ -64,7 +64,7 @@ def flipAndInvertImage(image):
     print(image)
     return image
 
-
+# 2108. Find First Palindromic String in the Array
 def firstPalindrome(words):
     """
     :type words: List[str]
