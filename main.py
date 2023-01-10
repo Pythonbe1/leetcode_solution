@@ -65,8 +65,29 @@ def flipAndInvertImage(image):
     return image
 
 
+def firstPalindrome(words):
+    """
+    :type words: List[str]
+    :rtype: str
+    """
+    for word in words:
+        temp = list(word)
+        left, right = 0, len(temp)-1
+        while left < right:
+            temp[left], temp[right] = temp[right], temp[left]
+            left += 1
+            right -= 1
+        if word == ''.join(temp):
+            print(word)
+            return word
+            break
+    return ''
+
+
 if __name__ == '__main__':
     # s = "God Ding"
     # reverseWords(s)
-    image = [[1, 1, 0], [1, 0, 1], [0, 0, 0]]
-    flipAndInvertImage(image)
+    # image = [[1, 1, 0], [1, 0, 1], [0, 0, 0]]
+    # flipAndInvertImage(image)
+    words = ["abc", "car", "ada", "racecar", "cool"]
+    firstPalindrome(words)
