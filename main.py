@@ -83,11 +83,39 @@ def firstPalindrome(words):
             break
     return ''
 
+# 2000. Reverse Prefix of Word
+
+def reversePrefix(word, ch):
+    """
+    :type word: str
+    :type ch: str
+    :rtype: str
+    """
+    word = list(word)
+    left = 0
+    try:
+        right = word.index(ch)
+        while left < right:
+            word[left], word[right] = word[right], word[left]
+            left += 1
+            right -= 1
+        print(''.join(word))
+        return ''.join(word)
+
+    except ValueError:
+        print(''.join(word))
+        return ''.join(word)
+
+
+
 
 if __name__ == '__main__':
     # s = "God Ding"
     # reverseWords(s)
     # image = [[1, 1, 0], [1, 0, 1], [0, 0, 0]]
     # flipAndInvertImage(image)
-    words = ["abc", "car", "ada", "racecar", "cool"]
-    firstPalindrome(words)
+    # words = ["abc", "car", "ada", "racecar", "cool"]
+    # firstPalindrome(words)
+    word = "abcdefd"
+    ch = "d"
+    reversePrefix(word, ch)
