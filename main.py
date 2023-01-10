@@ -28,20 +28,45 @@ def reverseWords(s):
     :rtype: str
     """
     word_lists = s.split(' ')
-    result=[]
+    result = []
     for word in word_lists:
         temp = list(word)
         l = 0
-        r= len(temp) - 1
-        while l<r:
+        r = len(temp) - 1
+        while l < r:
             temp[l], temp[r] = temp[r], temp[l]
-            l+=1
-            r-=1
+            l += 1
+            r -= 1
         result.append(''.join(temp))
     print(' '.join(result))
 
 
-# Press the green button in the gutter to run the script.
+# 832. Flipping an Image
+
+def flipAndInvertImage(image):
+    """
+    :type image: List[List[int]]
+    :rtype: List[List[int]]
+    """
+    for i in range(len(image)):
+        left = 0
+        right = len(image[i]) - 1
+        while left < right:
+            image[i][left], image[i][right] = image[i][right], image[i][left]
+            left += 1
+            right -= 1
+    for j in range(len(image)):
+        for k in range(len(image[j])):
+            if image[j][k] == 0:
+                image[j][k] = 1
+            else:
+                image[j][k] = 0
+    print(image)
+    return image
+
+
 if __name__ == '__main__':
-    s = "God Ding"
-    reverseWords(s)
+    # s = "God Ding"
+    # reverseWords(s)
+    image = [[1, 1, 0], [1, 0, 1], [0, 0, 0]]
+    flipAndInvertImage(image)
